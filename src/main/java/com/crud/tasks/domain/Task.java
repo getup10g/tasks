@@ -19,6 +19,7 @@ public class Task {
     @Column(name="description")
     private String content;
 
+
     /*public Task(Long id, String title, String content) {
     }*/
 }
