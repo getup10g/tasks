@@ -12,7 +12,7 @@ import java.util.List;
 
 import static org.springframework.http.MediaType.APPLICATION_JSON_VALUE;
 
-@CrossOrigin(origins ="*")
+@CrossOrigin(origins = "https://getup10g.github.io/")
 @RestController
 @RequestMapping("v1/task")
 public class TaskController {
