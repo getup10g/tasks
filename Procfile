@@ -1,1 +1,1 @@
-web: java -jar target/tasks-0.0.1-SNAPSHOT.jar
+web: java -jar /app/build/libs/tasks-0.0.1-SNAPSHOT.jar
