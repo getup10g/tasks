@@ -34,10 +34,19 @@ public class CoreConfiguration implements WebMvcConfigurer {
         return new Docket(DocumentationType.SWAGGER_2)
             .select()
             .apis(RequestHandlerSelectors.any())
-            .paths(PathSelectors.any())
+            .paths(PathSelectors.ant("/v1/task/*"))
             .build();
     }
 
+    @Override
+    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
+        // Required by Swagger UI configuration
+        registry.addResourceHandler("/lib/**").addResourceLocations("/lib/").setCachePeriod(0);
+        registry.addResourceHandler("/images/**").addResourceLocations("/images/").setCachePeriod(0);
+        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(0);
+        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
+        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
+    }
     @Override
     public void configurePathMatch(PathMatchConfigurer configurer) {
 
@@ -67,17 +76,6 @@ public class CoreConfiguration implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
 
     }
-
-    @Override
-    public void addResourceHandlers(final ResourceHandlerRegistry registry) {
-        // Required by Swagger UI configuration
-        registry.addResourceHandler("/lib/**").addResourceLocations("/lib/").setCachePeriod(0);
-        registry.addResourceHandler("/images/**").addResourceLocations("/images/").setCachePeriod(0);
-        registry.addResourceHandler("/css/**").addResourceLocations("/css/").setCachePeriod(0);
-        registry.addResourceHandler("swagger-ui.html").addResourceLocations("classpath:/META-INF/resources/");
-        registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:/META-INF/resources/webjars/");
-    }
-
     @Override
     public void addCorsMappings(CorsRegistry registry) {
 
