@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
 
+import static java.util.Optional.ofNullable;
+
 @Service
 public class DbService {
     @Autowired
@@ -22,8 +24,10 @@ public class DbService {
         return repository.save(task);
     }
 
-    public Optional<Task> getTask(final long id) {
-        return repository.findById(id);
+    public Task getTask(final long id) {
+        Task task = repository.findById(id);
+        return ofNullable(task).orElse(new Task((long) 0,"",""));
+       // return repository.findById(id);
     }
 
     public void delete(final long id) {

@@ -7,18 +7,16 @@ import com.crud.tasks.domain.TrelloCardDto;
 import com.crud.tasks.domain.createdTrelloCard.CreatedTrelloCardDto;
 import com.crud.tasks.mapper.TrelloMapper;
 import com.crud.tasks.service.TrelloService;
-import com.crud.tasks.trello.client.TrelloClient;
+
 import com.crud.tasks.trello.validator.TrelloValidator;
-import lombok.AllArgsConstructor;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 
 @Component
 public class TrelloFacade {
